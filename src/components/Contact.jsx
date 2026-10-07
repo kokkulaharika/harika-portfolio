@@ -276,7 +276,7 @@ function Contact() {
           </div>
 
           <a
-            href="/resume.pdf"
+            href="/Harika_Resume_SDE.pdf"
             target="_blank"
             rel="noreferrer"
             className="contact-resume-button"

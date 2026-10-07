@@ -10,8 +10,6 @@ const education = [
       'Kakatiya Institute of Technology and Science for Women',
     location: 'Nizamabad',
     period: '2023 — 2027',
-    result: '8.04',
-    resultLabel: 'CGPA',
     current: true,
   },
   {
@@ -22,8 +20,6 @@ const education = [
     institution: 'TGMS and Junior College',
     location: '',
     period: '2021 — 2023',
-    result: '89.1',
-    resultLabel: 'PERCENTAGE',
     current: false,
   },
   {
@@ -34,8 +30,6 @@ const education = [
     institution: 'Navajyothi High School',
     location: 'Korutla',
     period: '',
-    result: '10/10',
-    resultLabel: 'GPA',
     current: false,
   },
 ]
@@ -125,6 +119,7 @@ function Education() {
               PROGRESS.
             </h2>
           </motion.div>
+
 
           <motion.div
             className="education-intro-copy"
@@ -248,7 +243,6 @@ function Education() {
                     {item.location && (
                       <p className="education-location">
                         <i className="fa-solid fa-location-dot" />
-
                         {item.location}
                       </p>
                     )}
@@ -258,21 +252,6 @@ function Education() {
                         {item.period}
                       </p>
                     )}
-
-                  </div>
-
-
-                  {/* RESULT */}
-
-                  <div className="education-result">
-
-                    <span className="education-result-number">
-                      {item.result}
-                    </span>
-
-                    <span className="education-result-label">
-                      {item.resultLabel}
-                    </span>
 
                   </div>
 

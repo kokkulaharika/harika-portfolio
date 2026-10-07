@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { useState } from 'react'
 
 const projects = [
   {
@@ -41,10 +40,11 @@ const projects = [
       'REST APIs',
     ],
 
-    video: '/videos/feature-flags-demo.mp4',
+    liveDemo:
+      'https://talented-presence-production-4fe9.up.railway.app/',
 
     github:
-      'https://github.com/kokkulaharika/Feature_Flag_management_system',
+      'https://github.com/kokkulaharika/Application-Feature-Flag-Management-System',
   },
 
   {
@@ -85,98 +85,15 @@ const projects = [
       'JWT',
     ],
 
-    video: '/videos/ledgerflow-demo.mp4',
-
     github:
       'https://github.com/kokkulaharika/Ledger-flow',
   },
 ]
 
-function ProjectVideo({ project }) {
-  const [playing, setPlaying] = useState(false)
 
-  const handlePlay = (event) => {
-    event.currentTarget.blur()
-    setPlaying(true)
-  }
-
-  return (
-    <div className="project-video-wrapper">
-      <div className="project-browser">
-
-        {/* Browser Header */}
-
-        <div className="browser-topbar">
-
-          <div className="browser-dots">
-            <span />
-            <span />
-            <span />
-          </div>
-
-          <div className="browser-address">
-            <i className="fa-solid fa-lock" />
-            <span>project-demo.local</span>
-          </div>
-
-          <div className="browser-controls">
-            <i className="fa-solid fa-ellipsis" />
-          </div>
-
-        </div>
-
-        {/* Video Screen */}
-
-        <div className="project-video-container">
-
-          <video
-            src={project.video}
-            controls={playing}
-            muted
-            playsInline
-            preload="metadata"
-            className="project-video"
-            onPlay={() => setPlaying(true)}
-          />
-
-          {!playing && (
-            <div
-              className="video-overlay"
-              onClick={handlePlay}
-            >
-
-              <div className="video-overlay-grid" />
-
-              <button
-                type="button"
-                className="play-demo-button"
-                aria-label={`Play ${project.title} ${project.titleAccent} demo`}
-              >
-                <span className="play-icon">
-                  <i className="fa-solid fa-play" />
-                </span>
-
-                <span>PLAY DEMO</span>
-              </button>
-
-              <div className="video-corner video-corner-top">
-                SCREEN RECORDING
-              </div>
-
-              <div className="video-corner video-corner-bottom">
-                DEMO / {project.number}
-              </div>
-
-            </div>
-          )}
-
-        </div>
-      </div>
-
-      <div className="video-shadow" />
-    </div>
-  )
-}
+/* =========================================================
+   STORY BLOCK
+========================================================= */
 
 function StoryBlock({
   number,
@@ -187,37 +104,52 @@ function StoryBlock({
   return (
     <motion.div
       className="project-story-block"
+
       initial={{
         opacity: 0,
         y: 25,
       }}
+
       whileInView={{
         opacity: 1,
         y: 0,
       }}
+
       viewport={{
         once: true,
         amount: 0.2,
       }}
+
       transition={{
         duration: 0.6,
         delay,
       }}
     >
+
       <div className="story-number">
         {number}
       </div>
 
       <div className="story-content">
+
         <span className="story-label">
           {label}
         </span>
 
-        <p>{children}</p>
+        <p>
+          {children}
+        </p>
+
       </div>
+
     </motion.div>
   )
 }
+
+
+/* =========================================================
+   PROJECTS SECTION
+========================================================= */
 
 function Projects() {
   return (
@@ -225,9 +157,11 @@ function Projects() {
       className="projects-section"
       id="projects"
     >
+
       <div className="projects-grid-background" />
 
       <div className="projects-container">
+
 
         {/* =====================================
             HEADER
@@ -235,23 +169,29 @@ function Projects() {
 
         <motion.div
           className="projects-header"
+
           initial={{
             opacity: 0,
             y: 30,
           }}
+
           whileInView={{
             opacity: 1,
             y: 0,
           }}
+
           viewport={{
             once: true,
             amount: 0.3,
           }}
+
           transition={{
             duration: 0.8,
           }}
         >
+
           <div className="projects-header-left">
+
             <span className="section-number">
               04
             </span>
@@ -259,12 +199,15 @@ function Projects() {
             <span className="section-label">
               SELECTED WORK
             </span>
+
           </div>
 
           <span className="projects-header-right">
             BUILT / TESTED / SHIPPED
           </span>
+
         </motion.div>
+
 
         {/* =====================================
             INTRO
@@ -274,24 +217,31 @@ function Projects() {
 
           <motion.div
             className="projects-title-block"
+
             initial={{
               opacity: 0,
               x: -50,
             }}
+
             whileInView={{
               opacity: 1,
               x: 0,
             }}
+
             viewport={{
               once: true,
               amount: 0.25,
             }}
+
             transition={{
               duration: 0.9,
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <p>THE WORK</p>
+
+            <p>
+              THE WORK
+            </p>
 
             <h2>
               IDEAS
@@ -300,37 +250,48 @@ function Projects() {
               <br />
               SYSTEMS.
             </h2>
+
           </motion.div>
+
 
           <motion.div
             className="projects-intro-copy"
+
             initial={{
               opacity: 0,
               x: 50,
             }}
+
             whileInView={{
               opacity: 1,
               x: 0,
             }}
+
             viewport={{
               once: true,
               amount: 0.25,
             }}
+
             transition={{
               duration: 0.9,
               delay: 0.15,
             }}
           >
-            <span>/ SELECTED PROJECTS</span>
+
+            <span>
+              / SELECTED PROJECTS
+            </span>
 
             <p>
               Two full-stack applications built around
               real workflows, backend architecture,
               APIs, databases, and usable interfaces.
             </p>
+
           </motion.div>
 
         </div>
+
 
         {/* =====================================
             PROJECT LIST
@@ -338,34 +299,43 @@ function Projects() {
 
         <div className="projects-list">
 
-          {projects.map((project, index) => (
+          {projects.map((project) => (
+
             <article
               className="project"
               key={project.number}
             >
 
-              {/* PROJECT TOP */}
+
+              {/* =====================================
+                  PROJECT TOP
+              ===================================== */}
 
               <motion.div
                 className="project-top"
+
                 initial={{
                   opacity: 0,
                   y: 30,
                 }}
+
                 whileInView={{
                   opacity: 1,
                   y: 0,
                 }}
+
                 viewport={{
                   once: true,
                   amount: 0.2,
                 }}
+
                 transition={{
                   duration: 0.7,
                 }}
               >
 
                 <div className="project-index">
+
                   <span>
                     {project.number}
                   </span>
@@ -373,28 +343,36 @@ function Projects() {
                   <span>
                     {project.category}
                   </span>
+
                 </div>
 
                 <div className="project-line" />
 
               </motion.div>
 
-              {/* PROJECT TITLE */}
+
+              {/* =====================================
+                  PROJECT TITLE
+              ===================================== */}
 
               <motion.div
                 className="project-heading"
+
                 initial={{
                   opacity: 0,
                   y: 40,
                 }}
+
                 whileInView={{
                   opacity: 1,
                   y: 0,
                 }}
+
                 viewport={{
                   once: true,
                   amount: 0.25,
                 }}
+
                 transition={{
                   duration: 0.8,
                 }}
@@ -402,6 +380,7 @@ function Projects() {
 
                 <h3>
                   {project.title}
+
                   <span>
                     {project.titleAccent}
                   </span>
@@ -413,38 +392,23 @@ function Projects() {
 
               </motion.div>
 
-              {/* PROJECT VIDEO */}
 
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  scale: 0.96,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  scale: 1,
-                }}
-                viewport={{
-                  once: true,
-                  amount: 0.2,
-                }}
-                transition={{
-                  duration: 0.9,
-                }}
-              >
-                <ProjectVideo
-                  project={project}
-                />
-              </motion.div>
-
-              {/* STORY */}
+              {/* =====================================
+                  STORY
+              ===================================== */}
 
               <div className="project-story">
 
                 <div className="project-story-heading">
-                  <span>THE STORY</span>
+
+                  <span>
+                    THE STORY
+                  </span>
+
                   <div />
+
                 </div>
+
 
                 <div className="project-story-grid">
 
@@ -455,6 +419,7 @@ function Projects() {
                     {project.problem}
                   </StoryBlock>
 
+
                   <StoryBlock
                     number="02"
                     label="WHY I BUILT IT"
@@ -462,6 +427,7 @@ function Projects() {
                   >
                     {project.why}
                   </StoryBlock>
+
 
                   <StoryBlock
                     number="03"
@@ -475,45 +441,62 @@ function Projects() {
 
               </div>
 
-              {/* FEATURES + STACK */}
+
+              {/* =====================================
+                  FEATURES + STACK
+              ===================================== */}
 
               <div className="project-details">
+
 
                 <div className="project-detail-block">
 
                   <div className="detail-heading">
-                    <span>KEY FEATURES</span>
+
+                    <span>
+                      KEY FEATURES
+                    </span>
 
                     <span>
                       {String(
                         project.features.length,
                       ).padStart(2, '0')}
                     </span>
+
                   </div>
+
 
                   <div className="feature-list">
 
                     {project.features.map(
                       (feature, featureIndex) => (
+
                         <motion.div
+
                           className="feature-item"
+
                           key={feature}
+
                           initial={{
                             opacity: 0,
                             x: -15,
                           }}
+
                           whileInView={{
                             opacity: 1,
                             x: 0,
                           }}
+
                           viewport={{
                             once: true,
                           }}
+
                           transition={{
                             delay:
                               featureIndex * 0.04,
                           }}
                         >
+
                           <span>
                             {String(
                               featureIndex + 1,
@@ -525,7 +508,9 @@ function Projects() {
                           </p>
 
                           <i className="fa-solid fa-arrow-up-right-from-square" />
+
                         </motion.div>
+
                       ),
                     )}
 
@@ -533,23 +518,34 @@ function Projects() {
 
                 </div>
 
+
                 <div className="project-detail-block">
 
                   <div className="detail-heading">
-                    <span>TECH STACK</span>
-                    <span>STACK</span>
+
+                    <span>
+                      TECH STACK
+                    </span>
+
+                    <span>
+                      STACK
+                    </span>
+
                   </div>
+
 
                   <div className="project-stack">
 
                     {project.stack.map(
                       (tech) => (
+
                         <span
                           key={tech}
                           className="project-tech"
                         >
                           {tech}
                         </span>
+
                       ),
                     )}
 
@@ -559,67 +555,126 @@ function Projects() {
 
               </div>
 
-              {/* PROJECT FOOTER */}
+
+              {/* =====================================
+                  PROJECT FOOTER
+              ===================================== */}
 
               <motion.div
+
                 className="project-footer"
+
                 initial={{
                   opacity: 0,
                 }}
+
                 whileInView={{
                   opacity: 1,
                 }}
+
                 viewport={{
                   once: true,
                 }}
+
                 transition={{
                   duration: 0.7,
                 }}
               >
 
                 <div className="project-footer-label">
+
                   <span>
-                    {index === 0
-                      ? 'EXPLORE THE CODE'
+                    {project.liveDemo
+                      ? 'LIVE DEMO / SOURCE'
                       : 'VIEW SOURCE'}
                   </span>
+
                 </div>
 
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="github-project-button"
+
+                <div
+                  className="project-footer-actions"
+                  style={{
+                    display: 'flex',
+                    gap: '12px',
+                    flexWrap: 'wrap',
+                  }}
                 >
-                  <span>
-                    GITHUB
-                  </span>
 
-                  <i className="fa-brands fa-github" />
+                  {/* LIVE DEMO - Feature Flag only */}
 
-                  <i className="fa-solid fa-arrow-up-right-from-square" />
-                </a>
+                  {project.liveDemo && (
+
+                    <a
+                      href={project.liveDemo}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="github-project-button"
+                    >
+
+                      <span>
+                        LIVE DEMO
+                      </span>
+
+                      <i className="fa-solid fa-arrow-up-right-from-square" />
+
+                    </a>
+
+                  )}
+
+
+                  {/* GITHUB */}
+
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="github-project-button"
+                  >
+
+                    <span>
+                      GITHUB
+                    </span>
+
+                    <i className="fa-brands fa-github" />
+
+                    <i className="fa-solid fa-arrow-up-right-from-square" />
+
+                  </a>
+
+                </div>
 
               </motion.div>
 
             </article>
+
           ))}
 
         </div>
 
-        {/* SECTION FOOTER */}
+
+        {/* =====================================
+            SECTION FOOTER
+        ===================================== */}
 
         <div className="projects-footer">
-          <span>02 PROJECTS</span>
+
+          <span>
+            02 PROJECTS
+          </span>
 
           <div>
             <span />
           </div>
 
-          <span>04 — 07</span>
+          <span>
+            04 — 07
+          </span>
+
         </div>
 
       </div>
+
     </section>
   )
 }
